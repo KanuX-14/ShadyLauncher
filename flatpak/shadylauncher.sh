@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # discord RPC
 for i in {0..9}; do
@@ -8,4 +8,4 @@ done
 export PATH="${PATH}${PATH:+:}/app/utils/gamescope/bin:/usr/lib/extensions/vulkan/MangoHud/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}${LD_LIBRARY_PATH:+:}/usr/lib/extensions/vulkan/MangoHud/\$LIB/"
 
-exec /app/bin/prismrun "$@"
+exec /app/bin/shadyrun "$@"

@@ -6,7 +6,7 @@
    fill="none"
    version="1.1"
    id="svg180"
-   sodipodi:docname="PrismLauncher_(1).svg"
+   sodipodi:docname="shadylauncher-monochrome.Source.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -32,96 +32,7 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg180" />
   <defs
-     id="defs178">
-    <filter
-       id="filter0_d_56_257"
-       x="78.848396"
-       y="368.16199"
-       width="59.429001"
-       height="64.004501"
-       filterUnits="userSpaceOnUse"
-       color-interpolation-filters="sRGB">
-      <feFlood
-         flood-opacity="0"
-         result="BackgroundImageFix"
-         id="feFlood146" />
-      <feColorMatrix
-         in="SourceAlpha"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-         result="hardAlpha"
-         id="feColorMatrix148" />
-      <feOffset
-         id="feOffset150" />
-      <feGaussianBlur
-         stdDeviation="5"
-         id="feGaussianBlur152" />
-      <feComposite
-         in2="hardAlpha"
-         operator="out"
-         id="feComposite154" />
-      <feColorMatrix
-         type="matrix"
-         values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"
-         id="feColorMatrix156" />
-      <feBlend
-         mode="normal"
-         in2="BackgroundImageFix"
-         result="effect1_dropShadow_56_257"
-         id="feBlend158" />
-      <feBlend
-         mode="normal"
-         in="SourceGraphic"
-         in2="effect1_dropShadow_56_257"
-         result="shape"
-         id="feBlend160" />
-    </filter>
-    <linearGradient
-       id="paint0_linear_56_257"
-       x1="77.984497"
-       y1="40.9678"
-       x2="124.275"
-       y2="75.7817"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         stop-color="#BCCA38"
-         id="stop163" />
-      <stop
-         offset="1"
-         stop-color="#5EB672"
-         id="stop165" />
-    </linearGradient>
-    <linearGradient
-       id="paint1_linear_56_257"
-       x1="77.984497"
-       y1="197.04401"
-       x2="124.275"
-       y2="231.858"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         stop-color="#BCCA38"
-         id="stop168" />
-      <stop
-         offset="1"
-         stop-color="#5EB672"
-         id="stop170" />
-    </linearGradient>
-    <linearGradient
-       id="paint2_linear_56_257"
-       x1="77.984497"
-       y1="353.12"
-       x2="124.275"
-       y2="387.93399"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         stop-color="#BCCA38"
-         id="stop173" />
-      <stop
-         offset="1"
-         stop-color="#5EB672"
-         id="stop175" />
-    </linearGradient>
-  </defs>
+     id="defs178" />
   <g
      id="g2123"
      transform="translate(-20,-488.228)">
@@ -132,7 +43,8 @@
        height="136.076"
        rx="15"
        fill="#202020"
-       id="rect86" />
+       id="rect86"
+       style="fill:#202020;fill-opacity:1" />
     <g
        id="g1354-3"
        transform="matrix(0.19116204,0,0,0.19116204,60.622437,664.39882)">
@@ -203,5 +115,44 @@
          id="path340"
          style="stroke-width:5.05912" />
     </g>
+    <rect
+       style="fill:#f8f8f8;fill-opacity:1"
+       id="rect935"
+       width="120.3021"
+       height="41.772438"
+       x="174.69971"
+       y="537.02448" />
+    <rect
+       style="fill:#202020;fill-opacity:1"
+       id="rect1419"
+       width="121.43023"
+       height="49.212662"
+       x="173.40198"
+       y="690.67407"
+       rx="15" />
+    <text
+       xml:space="preserve"
+       style="font-weight:800;font-size:35.2456px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Ultra-Bold';fill:#000000;fill-opacity:1;stroke-width:2.20286"
+       x="208.92348"
+       y="543.32861"
+       id="text1527"
+       transform="scale(0.95463407,1.0475218)"><tspan
+         sodipodi:role="line"
+         id="tspan1525"
+         x="208.92348"
+         y="543.32861"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';stroke-width:2.20286">Shady</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:800;font-size:35.2456px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Ultra-Bold';fill:#fefefe;fill-opacity:1;stroke-width:2.20286"
+       x="208.49083"
+       y="692.51404"
+       id="text1527-3"
+       transform="scale(0.95463407,1.0475218)"><tspan
+         sodipodi:role="line"
+         id="tspan1525-6"
+         x="208.49083"
+         y="692.51404"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';fill:#fefefe;fill-opacity:1;stroke-width:2.20286">Shady</tspan></text>
   </g>
 </svg>

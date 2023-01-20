@@ -21,6 +21,7 @@ Debug
 # Build dirs
 build
 /build-*
+util/buildbot/build
 
 # Install dirs
 install

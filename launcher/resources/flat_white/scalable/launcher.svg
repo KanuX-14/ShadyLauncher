@@ -1,2 +1,228 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" fill="#eeeeee" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20 4h-16v16h16zm0 18h-16c-1.1046 0-2-0.89543-2-2v-16c0-1.1046 0.89543-2 2-2h16c1.1046 0 2 0.89543 2 2v16c0 1.1046-0.89543 2-2 2z"/><path d="m7.2 18c-0.225 0-0.45-0.075-0.6-0.15-0.375-0.225-0.6-0.6-0.6-1.05v-9.6c0-0.45 0.225-0.825 0.6-1.05 0.225-0.15 0.375-0.15 0.6-0.15 0.15 0 0.375 0.075 0.525 0.15l9.6 4.8c0.375 0.225 0.675 0.6 0.675 1.05 0 0.45-0.225 0.9-0.675 1.05l-9.6 4.8c-0.15 0.075-0.375 0.15-0.525 0.15z" clip-rule="evenodd" fill="#eeeeee" fill-rule="evenodd" stroke-width=".99999"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="39.754887"
+   height="44.00024"
+   version="1.1"
+   viewBox="0 0 10.51848 11.64173"
+   id="svg38"
+   sodipodi:docname="org.shadylauncher.ShadyLauncher.svg"
+   inkscape:export-filename="org.shadylauncher.ShadyLauncher.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs42">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Duochrome"
+       id="filter724"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         type="luminanceToAlpha"
+         result="colormatrix1"
+         id="feColorMatrix704" />
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(255,255,255)"
+         result="flood1"
+         id="feFlood706" />
+      <feComposite
+         in2="colormatrix1"
+         operator="out"
+         result="composite1"
+         id="feComposite708" />
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(0,0,0)"
+         result="flood2"
+         id="feFlood710" />
+      <feComposite
+         in2="colormatrix1"
+         result="composite2"
+         operator="in"
+         id="feComposite712" />
+      <feComposite
+         in="composite2"
+         in2="composite1"
+         k2="1"
+         k3="1"
+         operator="arithmetic"
+         result="composite3"
+         id="feComposite714"
+         k1="0"
+         k4="0" />
+      <feColorMatrix
+         in="composite3"
+         type="matrix"
+         values="2 -1 0 0 0 0 2 -1 0 0 -1 0 2 0 0 0 0 0 1 0 "
+         result="colormatrix2"
+         id="feColorMatrix716" />
+      <feComposite
+         in="colormatrix2"
+         in2="composite3"
+         operator="arithmetic"
+         k2="0"
+         result="composite4"
+         id="feComposite718"
+         k1="0"
+         k3="0"
+         k4="0" />
+      <feBlend
+         in="composite4"
+         in2="composite3"
+         mode="normal"
+         result="blend"
+         id="feBlend720" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         id="feComposite722" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview40"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="11.791667"
+     inkscape:cx="24.042403"
+     inkscape:cy="24"
+     inkscape:window-width="1366"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg38" />
+  <title
+     id="title2">Shady Launcher Logo</title>
+  <g
+     stroke-width="0.26458"
+     id="g24"
+     style="filter:url(#filter724)"
+     transform="translate(-1.0907201,-0.52907002)">
+    <path
+       d="M 6.35,6.35"
+       fill="#99cd61"
+       id="path4" />
+    <path
+       d="M 6.35,0.52917 3.8292,4.89477 6.35,6.34997 8.8703,4.89477 8.97985,1.79517 C 7.82875,1.13058 6.64105,0.52907 6.35005,0.52907 Z"
+       fill="#df6277"
+       id="path6" />
+    <path
+       d="M 8.9798,1.7952 6.35,6.35 8.8703,7.8052 11.3911,3.4396 C 11.24558,3.18755 10.131,2.45985 8.9799,1.7953 Z"
+       fill="#fb9168"
+       id="path8" />
+    <path
+       d="M 11.391,3.4396 6.35,6.35 8.8703,7.8052 11.6092,6.35 c 0,-1.3292 -0.07255,-2.6584 -0.21808,-2.9104 z"
+       fill="#f3db6c"
+       id="path10" />
+    <path
+       d="m 6.35,6.35 v 2.9104 h 5.041 C 11.53652,9.00835 11.60907,7.6792 11.60908,6.35 h -5.2591 z"
+       fill="#7ab392"
+       id="path12" />
+    <path
+       d="m 6.35,6.35 v 2.9104 l 2.6298,1.6443 c 1.1511,-0.66459 2.2657,-1.3923 2.4112,-1.6443 z"
+       fill="#4b7cbc"
+       id="path14" />
+    <path
+       d="M 6.35,6.35 3.8292,7.8052 6.35,12.1708 c 0.29104,0 1.4787,-0.60148 2.6298,-1.2661 L 6.35,6.3499 Z"
+       fill="#6f488c"
+       id="path16" />
+    <path
+       d="M 3.8292,4.8948 1.3089,9.2604 c 0.29104,0.5041 4.459,2.9104 5.041,2.9104 V 6.35 L 3.8291,4.8948 Z"
+       fill="#4d3f33"
+       id="path18" />
+    <path
+       d="m 1.309,3.4396 c -0.29104,0.5041 -0.29104,5.3167 0,5.8208 L 6.35,6.35 V 3.4396 Z"
+       fill="#7a573b"
+       id="path20" />
+    <path
+       d="m 6.35,0.52917 c -0.58208,-2e-8 -4.75,2.4063 -5.041,2.9104 l 5.041,2.9104 z"
+       fill="#99cd61"
+       id="path22" />
+  </g>
+  <g
+     transform="matrix(0.88,0,0,0.88,-11.99672,-1.77117)"
+     id="g32">
+    <g
+       transform="translate(13.26,2.2776)"
+       id="g28">
+      <path
+         transform="matrix(0.96975,0,0,0.96975,0.1921,0.1921)"
+         d="m 6.3498,2.9393 c -0.34105,0 -2.7827,1.4099 -2.9532,1.7052 L 6.3498,9.7602 9.3036,4.6445 C 9.13308,4.34915 6.6909,2.9393 6.3498,2.9393 Z"
+         fill="#ffffff"
+         stroke-width="0.26458"
+         id="path26" />
+    </g>
+    <path
+       d="m 16.746,6.9737 2.8639,4.9609 c 0.33073,0 2.6991,-1.3672 2.8644,-1.6536 0.16536,-0.28642 0.16536,-3.0209 0,-3.3073 l -2.8644,1.6536 z"
+       fill="#dfdfdf"
+       stroke-width="0.26458"
+       id="path30" />
+  </g>
+  <path
+     d="m 2.7391799,4.36573 c -0.14551,0.25205 -0.14553,2.6584 0,2.9104 0.14553,0.25204 2.2292,1.4552 2.5203,1.4552 v -2.9104 z"
+     fill="#d6d2d2"
+     stroke-width="0.26458"
+     id="path34" />
+  <metadata
+     id="metadata36">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Shady Launcher Logo</dc:title>
+        <dc:date>19/10/2022</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Shady Launcher</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>AutiOne, Boba, ely, Fulmine, gon sawa, Pankakes, tobimori, Zeke</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:source>https://gitlab.com/KanuX/ShadyLauncher</dc:source>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Shady Launcher</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

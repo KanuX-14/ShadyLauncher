@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>org.prismlauncher.PrismLauncher</id>
-  <launchable type="desktop-id">org.prismlauncher.PrismLauncher.desktop</launchable>
-  <name>Prism Launcher</name>
-  <developer_name>Prism Launcher Contributors</developer_name>
-  <summary>A custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once</summary>
+  <id>org.shadylauncher.ShadyLauncher</id>
+  <launchable type="desktop-id">org.shadylauncher.ShadyLauncher.desktop</launchable>
+  <name>Shady Launcher</name>
+  <developer_name>Shady Launcher Contributors</developer_name>
+  <summary>A custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-only</project_license>
-  <url type="homepage">https://prismlauncher.org/</url>
-  <url type="help">https://prismlauncher.org/wiki/</url>
-  <url type="bugtracker">https://github.com/PrismLauncher/PrismLauncher/issues</url>
+  <url type="homepage">https://gitlab.com/KanuX/shadylauncher</url>
+  <url type="help">https://gitlab.com/KanuX/shadylauncher/-/wikis/home</url>
+  <url type="bugtracker">https://gitlab.com/KanuX/shadylauncher/-/issues</url>
   <url type="contact">https://discord.gg/prismlauncher</url>
-  <url type="vcs-browser">https://github.com/PrismLauncher/PrismLauncher</url>
-  <url type="contribute">https://github.com/PrismLauncher/PrismLauncher/blob/develop/CONTRIBUTING.md</url>
+  <url type="vcs-browser">https://gitlab.com/KanuX/shadylauncher</url>
+  <url type="contribute">https://gitlab.com/KanuX/shadylauncher/-/blob/master/CONTRIBUTING.md</url>
   <url type="translate">https://hosted.weblate.org/projects/prismlauncher/launcher</url>
   <description>
-    <p>Prism Launcher is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity.</p>
+    <p>Shady Launcher is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity.</p>
     <p>Features:</p>
     <ul>
       <li>Easily install game modifications, such as Fabric, Forge and Quilt</li>
@@ -32,7 +32,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <caption>The main Prism Launcher window</caption>
+      <caption>The main Shady Launcher window</caption>
       <image type="source" width="1030" height="764">https://prismlauncher.org/img/screenshots/LauncherDark.png</image>
     </screenshot>
     <screenshot>

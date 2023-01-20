@@ -1,13 +1,13 @@
-name: prismlauncher
+name: shadylauncher
 license: GPL-3.0-only
 base: core20
-website: https://prismlauncher.org/
-source-code: https://github.com/PrismLauncher/PrismLauncher
-issues: https://github.com/PrismLauncher/PrismLauncher/issues
+website: https://gitlab.com/KanuX/shadylauncher
+source-code: https://gitlab.com/KanuX/shadylauncher
+issues: https://gitlab.com/KanuX/shadylauncher/-/issues
 donation: https://opencollective.com/prismlauncher
 contact: https://discord.gg/prismlauncher
-summary: A custom Minecraft launcher with modpack support
-adopt-info: prismlauncher
+summary: A custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.
+adopt-info: shadylauncher
 
 grade: devel
 confinement: strict
@@ -17,9 +17,9 @@ architectures:
   - build-on: arm64
 
 parts:
-  prismlauncher:
+  shadylauncher:
     parse-info:
-      - usr/share/metainfo/org.prismlauncher.PrismLauncher.metainfo.xml
+      - usr/share/metainfo/org.shadylauncher.ShadyLauncher.metainfo.xml
     plugin: cmake
     build-packages:
       - default-jdk-headless
@@ -30,7 +30,7 @@ parts:
     override-pull: |
       snapcraftctl pull
       # Fix the icon reference in the desktop file
-      sed -i.bak -e 's|Icon=org.prismlauncher.PrismLauncher|Icon=/usr/share/icons/hicolor/scalable/apps/org.prismlauncher.PrismLauncher.svg|g' program_info/org.prismlauncher.PrismLauncher.desktop.in
+      sed -i.bak -e 's|Icon=org.shadylauncher.ShadyLauncher|Icon=/usr/share/icons/hicolor/scalable/apps/org.shadylauncher.ShadyLauncher.svg|g' program_info/org.shadylauncher.ShadyLauncher.desktop.in
       # Remove the build directory so that local development doesn't interfere with Snap compilation
       rm -rf build
     cmake-generator: Ninja
@@ -41,10 +41,10 @@ parts:
       - "-DLauncher_BUILD_PLATFORM=snap"
 
 apps:
-  prismlauncher:
-    common-id: org.prismlauncher.PrismLauncher
-    desktop: usr/share/applications/org.prismlauncher.PrismLauncher.desktop
-    command: usr/bin/prismlauncher
+  shadylauncher:
+    common-id: org.shadylauncher.ShadyLauncher
+    desktop: usr/share/applications/org.shadylauncher.ShadyLauncher.desktop
+    command: usr/bin/shadylauncher
     extensions:
       - kde-neon
     plugs:
