@@ -23,6 +23,9 @@ build
 /build-*
 util/buildbot/build
 
+# direnv / Nix
+.direnv/
+
 # Install dirs
 install
 /install-*
