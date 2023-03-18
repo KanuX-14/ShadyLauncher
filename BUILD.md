@@ -1,5 +1,6 @@
 # Build Instructions
 
+<<<<<<< HEAD
 Full build instructions will be available on [the website](https://prismlauncher.org/wiki/development/build-instructions/).
 
 ## Getting the source
@@ -49,3 +50,6 @@ cmake --install build
 cmake --install build --component portable
 ```
 
+=======
+Full build instructions are available on [the website](https://prismlauncher.org/wiki/development/build-instructions/).
+>>>>>>> a1130dac (chore: format markdown files)
