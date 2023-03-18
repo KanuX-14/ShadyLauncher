@@ -88,7 +88,7 @@ void BlockedModsDialog::dropEvent(QDropEvent* e)
         if (url.scheme().isEmpty()) { // ensure isLocalFile() works correctly
             url.setScheme("file");
         }
-        
+
         if (!url.isLocalFile()) { // can't drop external files here.
             continue;
         }
