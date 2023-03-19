@@ -11,21 +11,28 @@ html/
 *.pro.user
 CMakeLists.txt.user
 CMakeLists.txt.user.*
+CMakeSettings.json
 /.project
 /.settings
 /.idea
 /.vscode
+/.vs
 cmake-build-*/
 Debug
 
 # Build dirs
-build
-/build-*
-util/buildbot/build
+build/[B,b]uild
+build/[B,b]uild-*
+util/buildbot/[B,b]uild
+util/buildbot/[B,b]uild-*
+
+# direnv / Nix
+.direnv/
+.pre-commit-config.yaml
 
 # Install dirs
-install
-/install-*
+build/ShadyLauncher
+build/ShadyLauncher-*
 
 # Ctags File
 tags

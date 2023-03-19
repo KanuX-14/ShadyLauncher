@@ -32,10 +32,14 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDialogButtonBox>
+#include <QDir>
+#include <QDirIterator>
 #include <QDragEnterEvent>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QMimeData>
 #include <QPushButton>
+#include <QMimeData>
 #include <QStandardPaths>
 
 BlockedModsDialog::BlockedModsDialog(QWidget* parent, const QString& title, const QString& text, QList<BlockedMod>& mods)
@@ -88,7 +92,7 @@ void BlockedModsDialog::dropEvent(QDropEvent* e)
         if (url.scheme().isEmpty()) { // ensure isLocalFile() works correctly
             url.setScheme("file");
         }
-        
+
         if (!url.isLocalFile()) { // can't drop external files here.
             continue;
         }
@@ -180,7 +184,7 @@ void BlockedModsDialog::directoryChanged(QString path)
 /// @brief add the user downloads folder and the global mods folder to the filesystem watcher
 void BlockedModsDialog::setupWatch()
 {
-    const QString downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    const QString downloadsFolder = APPLICATION->settings()->get("DownloadsDir").toString();
     const QString modsFolder = APPLICATION->settings()->get("CentralModsDir").toString();
     m_watcher.addPath(downloadsFolder);
     m_watcher.addPath(modsFolder);
@@ -230,7 +234,7 @@ void BlockedModsDialog::addHashTask(QString path)
 /// @param path the path to the local file being hashed
 void BlockedModsDialog::buildHashTask(QString path)
 {
-    auto hash_task = Hashing::createBlockedModHasher(path, ModPlatform::Provider::FLAME, "sha1");
+    auto hash_task = Hashing::createBlockedModHasher(path, ModPlatform::ResourceProvider::FLAME, "sha1");
 
     qDebug() << "[Blocked Mods Dialog] Creating Hash task for path: " << path;
 

@@ -174,7 +174,7 @@ set(Launcher_SUBREDDIT_URL "https://www.reddit.com/r/PrismLauncher/" CACHE STRIN
 
 # Builds
 set(Launcher_FORCE_BUNDLED_LIBS OFF CACHE BOOL "Prevent using system libraries, if they are available as submodules")
-set(Launcher_QT_VERSION_MAJOR "5" CACHE STRING "Major Qt version to build against")
+set(Launcher_QT_VERSION_MAJOR "6" CACHE STRING "Major Qt version to build against")
 
 # API Keys
 # NOTE: These API keys are here for convenience. If you rebrand this software or intend to break the terms of service
@@ -209,8 +209,14 @@ set(Launcher_BUILD_TIMESTAMP "${TODAY}")
 
 ################################ 3rd Party Libs ################################
 
-if(NOT Launcher_FORCE_BUNDLED_LIBS)
+# Successive configurations of cmake without cleaning the build dir will cause zlib fallback to fail due to cached values
+# Record when fallback triggered and skip this find_package
+if(NOT Launcher_FORCE_BUNDLED_LIBS AND NOT FORCE_BUNDLED_ZLIB)
     find_package(ZLIB QUIET)
+endif()
+if(NOT ZLIB_FOUND)
+    set(FORCE_BUNDLED_ZLIB TRUE CACHE BOOL "")
+    mark_as_advanced(FORCE_BUNDLED_ZLIB)
 endif()
 
 # Find the required Qt parts
@@ -380,13 +386,24 @@ add_subdirectory(libraries/libnbtplusplus)
 add_subdirectory(libraries/systeminfo) # system information library
 add_subdirectory(libraries/launcher) # java based launcher part for Minecraft
 add_subdirectory(libraries/javacheck) # java compatibility checker
-if(NOT ZLIB_FOUND)
+if(FORCE_BUNDLED_ZLIB)
     message(STATUS "Using bundled zlib")
+
     set(CMAKE_POLICY_DEFAULT_CMP0069 NEW) # Suppress cmake warnings and allow INTERPROCEDURAL_OPTIMIZATION for zlib
     set(SKIP_INSTALL_ALL ON)
     add_subdirectory(libraries/zlib EXCLUDE_FROM_ALL)
-    
-    set(ZLIB_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib" "${CMAKE_CURRENT_BINARY_DIR}/libraries/zlib" CACHE STRING "")
+
+    # On OS where unistd.h exists, zlib's generated header defines `Z_HAVE_UNISTD_H`, while the included header does not. 
+    # We cannot safely undo the rename on those systems, and they generally have packages for zlib anyway.
+    check_include_file(unistd.h NEED_GENERATED_ZCONF)
+    if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib/zconf.h.included" AND NOT NEED_GENERATED_ZCONF)
+        # zlib's cmake script renames a file, dirtying the submodule, see https://github.com/madler/zlib/issues/162
+        message(STATUS "Undoing Rename")
+        message(STATUS "    ${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib/zconf.h")
+        file(RENAME "${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib/zconf.h.included" "${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib/zconf.h")
+    endif()
+
+    set(ZLIB_INCLUDE_DIR "${CMAKE_CURRENT_BINARY_DIR}/libraries/zlib" "${CMAKE_CURRENT_SOURCE_DIR}/libraries/zlib" CACHE STRING "" FORCE)
     set_target_properties(zlibstatic PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${ZLIB_INCLUDE_DIR}")
     add_library(ZLIB::ZLIB ALIAS zlibstatic)
     set(ZLIB_LIBRARY ZLIB::ZLIB CACHE STRING "zlib library name")
@@ -426,12 +443,11 @@ add_subdirectory(libraries/gamemode)
 add_subdirectory(libraries/murmur2) # Hash for usage with the CurseForge API
 if (NOT ghc_filesystem_FOUND)
     message(STATUS "Using bundled ghc_filesystem")
-    set(GHC_FILESYSTEM_WITH_INSTALL OFF) # Workaround ghc::filesystem bug
     add_subdirectory(libraries/filesystem) # Implementation of std::filesystem for old C++, for usage in old macOS
-    add_library(ghcFilesystem::ghc_filesystem ALIAS ghc_filesystem)
 else()
     message(STATUS "Using system ghc_filesystem")
 endif()
+add_subdirectory(libraries/qdcss) # css parser
 
 ############################### Built Artifacts ###############################
 

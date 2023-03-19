@@ -44,14 +44,13 @@
 #include <QTextCharFormat>
 #include <QMenuBar>
 
-#include "updater/UpdateChecker.h"
-
 #include "settings/SettingsObject.h"
 #include <FileSystem.h>
 #include "Application.h"
 #include "BuildConfig.h"
 #include "DesktopServices.h"
 #include "ui/themes/ITheme.h"
+#include "updater/ExternalUpdater.h"
 
 #include <QApplication>
 #include <QProcess>
@@ -80,32 +79,12 @@ LauncherPage::LauncherPage(QWidget *parent) : QWidget(parent), ui(new Ui::Launch
     m_languageModel = APPLICATION->translations();
     loadSettings();
 
-    if(BuildConfig.UPDATER_ENABLED)
-    {
-        QObject::connect(APPLICATION->updateChecker().get(), &UpdateChecker::channelListLoaded, this, &LauncherPage::refreshUpdateChannelList);
+    ui->updateSettingsBox->setHidden(!APPLICATION->updater());
 
-        if (APPLICATION->updateChecker()->hasChannels())
-        {
-            refreshUpdateChannelList();
-        }
-        else
-        {
-            APPLICATION->updateChecker()->updateChanList(false);
-        }
-
-        if (APPLICATION->updateChecker()->getExternalUpdater())
-        {
-            ui->updateChannelComboBox->setVisible(false);
-            ui->updateChannelDescLabel->setVisible(false);
-            ui->updateChannelLabel->setVisible(false);
-        }
-    }
-    else
-    {
-        ui->updateSettingsBox->setHidden(true);
-    }
     connect(ui->fontSizeBox, SIGNAL(valueChanged(int)), SLOT(refreshFontPreview()));
     connect(ui->consoleFont, SIGNAL(currentFontChanged(QFont)), SLOT(refreshFontPreview()));
+
+    connect(ui->themeCustomizationWidget, &ThemeCustomizationWidget::currentCatChanged, APPLICATION, &Application::currentCatChanged);
 }
 
 LauncherPage::~LauncherPage()
@@ -161,8 +140,8 @@ void LauncherPage::on_instDirBrowseBtn_clicked()
             if (result == QMessageBox::Ok)
             {
                 ui->instDirTextBox->setText(cooked_dir);
-            } 
-        } 
+            }
+        }
         else
         {
             ui->instDirTextBox->setText(cooked_dir);
@@ -181,6 +160,7 @@ void LauncherPage::on_iconsDirBrowseBtn_clicked()
         ui->iconsDirTextBox->setText(cooked_dir);
     }
 }
+
 void LauncherPage::on_modsDirBrowseBtn_clicked()
 {
     QString raw_dir = QFileDialog::getExistingDirectory(this, tr("Mods Folder"), ui->modsDirTextBox->text());
@@ -193,81 +173,20 @@ void LauncherPage::on_modsDirBrowseBtn_clicked()
     }
 }
 
+void LauncherPage::on_downloadsDirBrowseBtn_clicked()
+{
+    QString raw_dir = QFileDialog::getExistingDirectory(this, tr("Downloads Folder"), ui->downloadsDirTextBox->text());
+
+    if (!raw_dir.isEmpty() && QDir(raw_dir).exists())
+    {
+        QString cooked_dir = FS::NormalizePath(raw_dir);
+        ui->downloadsDirTextBox->setText(cooked_dir);
+    }
+}
+
 void LauncherPage::on_metadataDisableBtn_clicked()
 {
     ui->metadataWarningLabel->setHidden(!ui->metadataDisableBtn->isChecked());
-}
-
-void LauncherPage::refreshUpdateChannelList()
-{
-    // Stop listening for selection changes. It's going to change a lot while we update it and
-    // we don't need to update the
-    // description label constantly.
-    QObject::disconnect(ui->updateChannelComboBox, SIGNAL(currentIndexChanged(int)), this,
-                        SLOT(updateChannelSelectionChanged(int)));
-
-    QList<UpdateChecker::ChannelListEntry> channelList = APPLICATION->updateChecker()->getChannelList();
-    ui->updateChannelComboBox->clear();
-    int selection = -1;
-    for (int i = 0; i < channelList.count(); i++)
-    {
-        UpdateChecker::ChannelListEntry entry = channelList.at(i);
-
-        // When it comes to selection, we'll rely on the indexes of a channel entry being the
-        // same in the
-        // combo box as it is in the update checker's channel list.
-        // This probably isn't very safe, but the channel list doesn't change often enough (or
-        // at all) for
-        // this to be a big deal. Hope it doesn't break...
-        ui->updateChannelComboBox->addItem(entry.name);
-
-        // If the update channel we just added was the selected one, set the current index in
-        // the combo box to it.
-        if (entry.id == m_currentUpdateChannel)
-        {
-            qDebug() << "Selected index" << i << "channel id" << m_currentUpdateChannel;
-            selection = i;
-        }
-    }
-
-    ui->updateChannelComboBox->setCurrentIndex(selection);
-
-    // Start listening for selection changes again and update the description label.
-    QObject::connect(ui->updateChannelComboBox, SIGNAL(currentIndexChanged(int)), this,
-                     SLOT(updateChannelSelectionChanged(int)));
-    refreshUpdateChannelDesc();
-
-    // Now that we've updated the channel list, we can enable the combo box.
-    // It starts off disabled so that if the channel list hasn't been loaded, it will be
-    // disabled.
-    ui->updateChannelComboBox->setEnabled(true);
-}
-
-void LauncherPage::updateChannelSelectionChanged(int index)
-{
-    refreshUpdateChannelDesc();
-}
-
-void LauncherPage::refreshUpdateChannelDesc()
-{
-    // Get the channel list.
-    QList<UpdateChecker::ChannelListEntry> channelList = APPLICATION->updateChecker()->getChannelList();
-    int selectedIndex = ui->updateChannelComboBox->currentIndex();
-    if (selectedIndex < 0)
-    {
-        return;
-    }
-    if (selectedIndex < channelList.count())
-    {
-        // Find the channel list entry with the given index.
-        UpdateChecker::ChannelListEntry selected = channelList.at(selectedIndex);
-
-        // Set the description text.
-        ui->updateChannelDescLabel->setText(selected.description);
-
-        // Set the currently selected channel ID.
-        m_currentUpdateChannel = selected.id;
-    }
 }
 
 void LauncherPage::applySettings()
@@ -275,14 +194,9 @@ void LauncherPage::applySettings()
     auto s = APPLICATION->settings();
 
     // Updates
-    if (BuildConfig.UPDATER_ENABLED && APPLICATION->updateChecker()->getExternalUpdater())
+    if (APPLICATION->updater())
     {
-        APPLICATION->updateChecker()->getExternalUpdater()->setAutomaticallyChecksForUpdates(
-                ui->autoUpdateCheckBox->isChecked());
-    }
-    else
-    {
-        s->set("AutoUpdate", ui->autoUpdateCheckBox->isChecked());
+        APPLICATION->updater()->setAutomaticallyChecksForUpdates(ui->autoUpdateCheckBox->isChecked());
     }
 
     s->set("UpdateChannel", m_currentUpdateChannel);
@@ -304,6 +218,7 @@ void LauncherPage::applySettings()
     s->set("InstanceDir", ui->instDirTextBox->text());
     s->set("CentralModsDir", ui->modsDirTextBox->text());
     s->set("IconsDir", ui->iconsDirTextBox->text());
+    s->set("DownloadsDir", ui->downloadsDirTextBox->text());
 
     auto sortMode = (InstSortMode)ui->sortingModeGroup->checkedId();
     switch (sortMode)
@@ -324,14 +239,9 @@ void LauncherPage::loadSettings()
 {
     auto s = APPLICATION->settings();
     // Updates
-    if (BuildConfig.UPDATER_ENABLED && APPLICATION->updateChecker()->getExternalUpdater())
+    if (APPLICATION->updater())
     {
-        ui->autoUpdateCheckBox->setChecked(
-                APPLICATION->updateChecker()->getExternalUpdater()->getAutomaticallyChecksForUpdates());
-    }
-    else
-    {
-        ui->autoUpdateCheckBox->setChecked(s->get("AutoUpdate").toBool());
+        ui->autoUpdateCheckBox->setChecked(APPLICATION->updater()->getAutomaticallyChecksForUpdates());
     }
 
     m_currentUpdateChannel = s->get("UpdateChannel").toString();
@@ -366,6 +276,7 @@ void LauncherPage::loadSettings()
     ui->instDirTextBox->setText(s->get("InstanceDir").toString());
     ui->modsDirTextBox->setText(s->get("CentralModsDir").toString());
     ui->iconsDirTextBox->setText(s->get("IconsDir").toString());
+    ui->downloadsDirTextBox->setText(s->get("DownloadsDir").toString());
 
     QString sortMode = s->get("InstSortMode").toString();
 

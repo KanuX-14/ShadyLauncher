@@ -12,9 +12,11 @@
 
 #include "tasks/Task.h"
 
-ResourceFolderModel::ResourceFolderModel(QDir dir, QObject* parent) : QAbstractListModel(parent), m_dir(dir), m_watcher(this)
+ResourceFolderModel::ResourceFolderModel(QDir dir, QObject* parent, bool create_dir) : QAbstractListModel(parent), m_dir(dir), m_watcher(this)
 {
-    FS::ensureFolderPathExists(m_dir.absolutePath());
+    if (create_dir) {
+        FS::ensureFolderPathExists(m_dir.absolutePath());
+    }
 
     m_dir.setFilter(QDir::Readable | QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs);
     m_dir.setSorting(QDir::Name | QDir::IgnoreCase | QDir::LocaleAware);
@@ -260,7 +262,7 @@ void ResourceFolderModel::resolveResource(Resource* res)
         return;
     }
 
-    auto task = createParseTask(*res);
+    Task::Ptr task{ createParseTask(*res) };
     if (!task)
         return;
 
@@ -270,11 +272,11 @@ void ResourceFolderModel::resolveResource(Resource* res)
     m_active_parse_tasks.insert(ticket, task);
 
     connect(
-        task, &Task::succeeded, this, [=] { onParseSucceeded(ticket, res->internal_id()); }, Qt::ConnectionType::QueuedConnection);
+        task.get(), &Task::succeeded, this, [=] { onParseSucceeded(ticket, res->internal_id()); }, Qt::ConnectionType::QueuedConnection);
     connect(
-        task, &Task::failed, this, [=] { onParseFailed(ticket, res->internal_id()); }, Qt::ConnectionType::QueuedConnection);
+        task.get(), &Task::failed, this, [=] { onParseFailed(ticket, res->internal_id()); }, Qt::ConnectionType::QueuedConnection);
     connect(
-        task, &Task::finished, this, [=] { m_active_parse_tasks.remove(ticket); }, Qt::ConnectionType::QueuedConnection);
+        task.get(), &Task::finished, this, [=] { m_active_parse_tasks.remove(ticket); }, Qt::ConnectionType::QueuedConnection);
 
     m_helper_thread_task.addTask(task);
 
