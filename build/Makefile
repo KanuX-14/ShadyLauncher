@@ -188,7 +188,7 @@ help:
 		@printf "  shadylauncher-windows-debug-qt6\n"
 		@printf "  shadylauncher-windows-release-qt5\n"
 		@printf "  shadylauncher-windows-release-qt6\n"
-		@printf "\nAll the builds will be ${BLUE}portable${RESET_COLOUR}."
+		@printf "\nAll the builds will be ${BLUE}portable${RESET_COLOUR}.\n"
 
 all:
 		help()
