@@ -57,9 +57,9 @@ SHADYLAUNCHER_WINDOWS_QT6_RELEASE_RELEASE_FILE="ShadyLauncher-windows-release-qt
 #
 
 shadylauncher-linux-debug-qt5:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT5_DEBUG_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT5_DEBUG_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_LINUX_QT5_DEBUG_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_LINUX_QT5_DEBUG_BUILD_FOLDER}
@@ -72,9 +72,9 @@ shadylauncher-linux-debug-qt5:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Linux Debug${RESET_COLOUR} ${PURPLE}Qt5${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-linux-debug-qt6:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT6_DEBUG_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT6_DEBUG_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_LINUX_QT6_DEBUG_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_LINUX_QT6_DEBUG_BUILD_FOLDER}
@@ -87,9 +87,9 @@ shadylauncher-linux-debug-qt6:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Linux Debug${RESET_COLOUR} ${PURPLE}Qt6${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-linux-release-qt5:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}\n'
-		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT5_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT5_RELEASE_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
+		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT5_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT5_RELEASE_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_LINUX_QT5_RELEASE_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_LINUX_QT5_RELEASE_BUILD_FOLDER}
@@ -102,9 +102,9 @@ shadylauncher-linux-release-qt5:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Linux Release${RESET_COLOUR} ${PURPLE}Qt5${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-linux-release-qt6:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}\n'
-		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT6_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT6_RELEASE_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
+		@${CC} -S .. -B ${SHADYLAUNCHER_LINUX_QT6_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_LINUX_QT6_RELEASE_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Linux Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_LINUX_QT6_RELEASE_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_LINUX_QT6_RELEASE_BUILD_FOLDER}
@@ -117,9 +117,9 @@ shadylauncher-linux-release-qt6:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Linux Release${RESET_COLOUR} ${PURPLE}Qt6${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-windows-debug-qt5:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT5_DEBUG_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT5_DEBUG_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_WINDOWS_QT5_DEBUG_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_WINDOWS_QT5_DEBUG_BUILD_FOLDER}
@@ -132,9 +132,9 @@ shadylauncher-windows-debug-qt5:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Windows Debug${RESET_COLOUR} ${PURPLE}Qt5${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-windows-debug-qt6:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT6_DEBUG_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT6_DEBUG_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Debug${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_WINDOWS_QT6_DEBUG_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_WINDOWS_QT6_DEBUG_BUILD_FOLDER}
@@ -147,9 +147,9 @@ shadylauncher-windows-debug-qt6:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Windows Debug${RESET_COLOUR} ${PURPLE}Qt6${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-windows-release-qt5:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}\n'
-		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
+		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_RELEASE_FOLDER} -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt5${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_WINDOWS_QT5_RELEASE_BUILD_FOLDER}
@@ -162,9 +162,9 @@ shadylauncher-windows-release-qt5:
 		@printf '${RED}>>>${RESET_COLOUR} ${GREEN}Windows Release${RESET_COLOUR} ${PURPLE}Qt5${RESET_COLOUR} ready for launch.\n'
 
 shadylauncher-windows-release-qt6:
-		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}\n'
-		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
-		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR} using ${RED}${CORE}${RESET_COLOUR} cores.\n'
+		@printf '${RED}>>>${RESET_COLOUR} Preparing build files for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
+		@${CC} -S .. -B ${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_BUILD_FOLDER} -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_RELEASE_FOLDER} -DLauncher_QT_VERSION_MAJOR="6" -DENABLE_LTO=ON -G ${MAKEFILE_TYPE}
+		@printf '${RED}>>>${RESET_COLOUR} Building for ${GREEN}Windows Release${RESET_COLOUR} with the design of ${PURPLE}Qt6${RESET_COLOUR}.\n'
 		@${CC} --build ${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_BUILD_FOLDER}
 		@printf '${RED}>>>${RESET_COLOUR} Packing release.\n'
 		@${CC} --install ${SHADYLAUNCHER_WINDOWS_QT6_RELEASE_BUILD_FOLDER}
@@ -188,7 +188,7 @@ help:
 		@printf "  shadylauncher-windows-debug-qt6\n"
 		@printf "  shadylauncher-windows-release-qt5\n"
 		@printf "  shadylauncher-windows-release-qt6\n"
-		@printf "\nAll the builds will be portable."
+		@printf "\nAll the builds will be ${BLUE}portable${RESET_COLOUR}."
 
 all:
 		help()
