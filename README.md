@@ -48,11 +48,7 @@ Be aware that if you build this software without removing the provided API keys 
 
 If you do not agree with these terms and conditions, then remove the associated API keys from the [CMakeLists.txt](https://gitlab.com/KanuX/ShadyLauncher/-/blob/master/CMakeLists.txt) file by setting them to an empty string (`""`).
 
-<<<<<<< HEAD
-## License ![https://gitlab.com/KanuX/ShadyLauncher/-/blob/master/LICENSE](https://img.shields.io/gitlab/license/KanuX/ShadyLauncher?label=License&logo=gnu&color=C4282D)
-=======
-## License [![https://github.com/PrismLauncher/PrismLauncher/blob/develop/LICENSE](https://img.shields.io/github/license/PrismLauncher/PrismLauncher?label=License&logo=gnu&color=C4282D)](LICENSE)
->>>>>>> 381d7413 (Link license in the shield badge)
+## License [![https://gitlab.com/KanuX/ShadyLauncher/-/blob/master/LICENSE](https://img.shields.io/gitlab/license/KanuX/ShadyLauncher?label=License&logo=gnu&color=C4282D)](LICENSE)
 
 All launcher code is available under the GPL-3.0-only license.
 

@@ -87,7 +87,7 @@ void MSAStep::perform() {
         case Refresh: {
             if (m_data->msaClientID != m_clientId) {
                 emit hideVerificationUriAndCode();
-                emit finished(AccountTaskState::STATE_DISABLED, tr("Microsoft user authentication failed - entering as offline."));
+                emit finished(AccountTaskState::STATE_DISABLED, tr("Microsoft API is denied on ShadyLauncher. If you see this message, keep in mind that you are using a unofficial build of ShadyLauncher."));
             }
             m_oauth2->refresh();
             return;
