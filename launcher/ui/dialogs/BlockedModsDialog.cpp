@@ -32,10 +32,14 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QDialogButtonBox>
+#include <QDir>
+#include <QDirIterator>
 #include <QDragEnterEvent>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QMimeData>
 #include <QPushButton>
+#include <QMimeData>
 #include <QStandardPaths>
 
 BlockedModsDialog::BlockedModsDialog(QWidget* parent, const QString& title, const QString& text, QList<BlockedMod>& mods)
