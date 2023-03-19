@@ -26,13 +26,18 @@ build/[B,b]uild-*
 util/buildbot/[B,b]uild
 util/buildbot/[B,b]uild-*
 
+# Install dirs
+build/i_[S,s]hady[L,l]auncher
+build/i_[S,s]hady[L,l]auncher-*
+build/[S,s]hady[L,l]auncher
+build/[S,s]hady[L,l]auncher-*
+
+# Release dirs
+build/release
+
 # direnv / Nix
 .direnv/
 .pre-commit-config.yaml
-
-# Install dirs
-build/ShadyLauncher
-build/ShadyLauncher-*
 
 # Ctags File
 tags
